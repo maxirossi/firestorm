@@ -1,2 +1,9 @@
 # firestorm
-FireStorm its a super-light CMPHP.  Its Open Source,  you can use, modify or what you want.  Only remember: May the Force be with you.
+
+FireStormCMS
+
+A modern & Flexible CMS Open Source, made in PHP
+Why use it ? Ok.. lets go. Implements MVC, CodeIgniter as Framework, and Bootstrap 3. Its easy , Nearly zero configuration, modular and extensible.
+
+Official website: http://estudiogo.com/firestorm/
+Documentation: http://estudiogo.com/firestorm/documentation.php
