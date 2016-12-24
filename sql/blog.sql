@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.12deb2+deb8u2
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 19-12-2016 a las 21:47:28
--- Versión del servidor: 5.5.50-0+deb8u1
--- Versión de PHP: 5.6.27-0+deb8u1
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 24-12-2016 a las 06:12:06
+-- Versión del servidor: 10.1.19-MariaDB
+-- Versión de PHP: 5.6.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de datos: `blog`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `admin`
 --
 
-CREATE TABLE IF NOT EXISTS `admin` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `admin` (
+  `id` int(10) UNSIGNED NOT NULL,
   `moduleID` int(11) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `lastName` varchar(50) DEFAULT NULL,
@@ -39,17 +39,17 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `celphone` varchar(15) DEFAULT NULL,
   `date_nac` date DEFAULT NULL,
   `permissions` tinyint(1) NOT NULL,
-  `order` int(10) unsigned NOT NULL,
+  `order` int(10) UNSIGNED NOT NULL,
   `last_mod` datetime NOT NULL,
   `master` tinyint(1) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `admin`
 --
 
 INSERT INTO `admin` (`id`, `moduleID`, `name`, `lastName`, `user`, `password`, `email`, `address`, `phone`, `celphone`, `date_nac`, `permissions`, `order`, `last_mod`, `master`) VALUES
-(1, 0, NULL, NULL, 'admin', 'd1678b77a1e66888d5e6d01c388afb63', 'rossi.maxi@gmail.com', NULL, NULL, NULL, NULL, 1, 0, '0000-00-00 00:00:00', 0);
+(1, 0, NULL, NULL, 'admin', '21232f297a57a5a743894a0e4a801fc3', 'rossi.maxi@gmail.com', NULL, NULL, NULL, NULL, 1, 0, '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -57,8 +57,8 @@ INSERT INTO `admin` (`id`, `moduleID`, `name`, `lastName`, `user`, `password`, `
 -- Estructura de tabla para la tabla `content`
 --
 
-CREATE TABLE IF NOT EXISTS `content` (
-`id` int(10) unsigned NOT NULL,
+CREATE TABLE `content` (
+  `id` int(10) UNSIGNED NOT NULL,
   `date` date DEFAULT NULL,
   `category` smallint(4) DEFAULT NULL,
   `status` tinyint(1) NOT NULL,
@@ -69,8 +69,8 @@ CREATE TABLE IF NOT EXISTS `content` (
   `body` longtext,
   `altFieldDate` date DEFAULT NULL,
   `altFieldDateEnd` date DEFAULT NULL,
-  `subcat_id` int(10) unsigned DEFAULT NULL,
-  `supercat_id` int(10) unsigned DEFAULT NULL,
+  `subcat_id` int(10) UNSIGNED DEFAULT NULL,
+  `supercat_id` int(10) UNSIGNED DEFAULT NULL,
   `position` int(5) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `last_mod` datetime NOT NULL,
@@ -82,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `content` (
   `description` text NOT NULL,
   `tags` varchar(255) NOT NULL,
   `menu` tinyint(4) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `content`
@@ -109,11 +109,11 @@ INSERT INTO `content` (`id`, `date`, `category`, `status`, `title`, `subtitle`, 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `defaultModulesConfig`
+-- Estructura de tabla para la tabla `defaultmodulesconfig`
 --
 
-CREATE TABLE IF NOT EXISTS `defaultModulesConfig` (
-`id` int(11) NOT NULL,
+CREATE TABLE `defaultmodulesconfig` (
+  `id` int(11) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `debug` tinyint(1) DEFAULT NULL,
   `printRequest` tinyint(1) DEFAULT NULL,
@@ -143,13 +143,13 @@ CREATE TABLE IF NOT EXISTS `defaultModulesConfig` (
   `useImg` varchar(255) DEFAULT NULL,
   `last_mod` date DEFAULT NULL,
   `orden` int(11) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `defaultModulesConfig`
+-- Volcado de datos para la tabla `defaultmodulesconfig`
 --
 
-INSERT INTO `defaultModulesConfig` (`id`, `nombre`, `debug`, `printRequest`, `printInsertSql`, `printUpdateSql`, `printSelectSql`, `ordenSql`, `oFields`, `lFields`, `media`, `listadoUpload`, `listadoFlickr`, `listadoUrl`, `OpcImagenes`, `OpcAudios`, `OpcVideos`, `youtube`, `paginado`, `paginadoCant`, `OpcSort`, `permitirCrear`, `morir`, `limitImages`, `limitYoutube`, `permiteCrear`, `modulo_id`, `useImg`, `last_mod`, `orden`) VALUES
+INSERT INTO `defaultmodulesconfig` (`id`, `nombre`, `debug`, `printRequest`, `printInsertSql`, `printUpdateSql`, `printSelectSql`, `ordenSql`, `oFields`, `lFields`, `media`, `listadoUpload`, `listadoFlickr`, `listadoUrl`, `OpcImagenes`, `OpcAudios`, `OpcVideos`, `youtube`, `paginado`, `paginadoCant`, `OpcSort`, `permitirCrear`, `morir`, `limitImages`, `limitYoutube`, `permiteCrear`, `modulo_id`, `useImg`, `last_mod`, `orden`) VALUES
 (1, 'Default options for modules config', NULL, 0, 0, 0, 0, 'id desc', '', 'id, nombre', 1, 0, 0, 0, 0, 0, 0, 0, 1, 20, 1, NULL, 1, 2, 5, 1, 102, 'no usar ninguna', '2010-08-20', NULL);
 
 -- --------------------------------------------------------
@@ -158,24 +158,24 @@ INSERT INTO `defaultModulesConfig` (`id`, `nombre`, `debug`, `printRequest`, `pr
 -- Estructura de tabla para la tabla `files`
 --
 
-CREATE TABLE IF NOT EXISTS `files` (
-`id` int(10) unsigned NOT NULL,
-  `item_id` int(10) unsigned NOT NULL,
+CREATE TABLE `files` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `item_id` int(10) UNSIGNED NOT NULL,
   `name` varchar(250) NOT NULL,
-  `position` int(10) unsigned NOT NULL,
+  `position` int(10) UNSIGNED NOT NULL,
   `size` varchar(50) NOT NULL,
   `text` text,
   `title` varchar(250) DEFAULT NULL,
   `font` varchar(250) DEFAULT NULL,
   `destacar` tinyint(1) NOT NULL,
   `table` varchar(50) NOT NULL,
-  `supercat_id` int(10) unsigned NOT NULL,
-  `cat_id` int(10) unsigned NOT NULL,
-  `subcat_id` int(10) unsigned NOT NULL,
+  `supercat_id` int(10) UNSIGNED NOT NULL,
+  `cat_id` int(10) UNSIGNED NOT NULL,
+  `subcat_id` int(10) UNSIGNED NOT NULL,
   `last_mod` datetime NOT NULL,
   `type` varchar(50) NOT NULL,
   `moduleID` int(3) NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `files`
@@ -189,11 +189,11 @@ INSERT INTO `files` (`id`, `item_id`, `name`, `position`, `size`, `text`, `title
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `modulesConfig`
+-- Estructura de tabla para la tabla `modulesconfig`
 --
 
-CREATE TABLE IF NOT EXISTS `modulesConfig` (
-`id` int(11) NOT NULL,
+CREATE TABLE `modulesconfig` (
+  `id` int(11) NOT NULL,
   `module_name` varchar(255) NOT NULL,
   `nombre` varchar(255) NOT NULL,
   `debug` tinyint(1) DEFAULT NULL,
@@ -224,13 +224,13 @@ CREATE TABLE IF NOT EXISTS `modulesConfig` (
   `useImg` varchar(255) DEFAULT NULL,
   `last_mod` date DEFAULT NULL,
   `orden` int(11) DEFAULT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 --
--- Volcado de datos para la tabla `modulesConfig`
+-- Volcado de datos para la tabla `modulesconfig`
 --
 
-INSERT INTO `modulesConfig` (`id`, `module_name`, `nombre`, `debug`, `printRequest`, `printInsertSql`, `printUpdateSql`, `printSelectSql`, `ordenSql`, `oFields`, `lFields`, `media`, `listadoUpload`, `listadoFlickr`, `listadoUrl`, `OpcImagenes`, `OpcAudios`, `OpcVideos`, `youtube`, `paginado`, `paginadoCant`, `OpcSort`, `permitirCrear`, `morir`, `limitImages`, `limitYoutube`, `permiteCrear`, `modulo_id`, `useImg`, `last_mod`, `orden`) VALUES
+INSERT INTO `modulesconfig` (`id`, `module_name`, `nombre`, `debug`, `printRequest`, `printInsertSql`, `printUpdateSql`, `printSelectSql`, `ordenSql`, `oFields`, `lFields`, `media`, `listadoUpload`, `listadoFlickr`, `listadoUrl`, `OpcImagenes`, `OpcAudios`, `OpcVideos`, `youtube`, `paginado`, `paginadoCant`, `OpcSort`, `permitirCrear`, `morir`, `limitImages`, `limitYoutube`, `permiteCrear`, `modulo_id`, `useImg`, `last_mod`, `orden`) VALUES
 (1, 'marcas', 'marcas', NULL, 0, 0, 0, 0, 'nombre asc', 'nombre', 'id, nombre', 1, 0, 0, 0, 0, 0, 0, 0, 1, 100, 1, NULL, 0, 0, 0, 1, 101, 'no usar ninguna', '2010-10-07', NULL);
 
 -- --------------------------------------------------------
@@ -239,8 +239,8 @@ INSERT INTO `modulesConfig` (`id`, `module_name`, `nombre`, `debug`, `printReque
 -- Estructura de tabla para la tabla `posts`
 --
 
-CREATE TABLE IF NOT EXISTS `posts` (
-`id` int(11) NOT NULL,
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `description` text NOT NULL,
@@ -249,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `status` tinyint(4) NOT NULL,
   `moduleID` int(3) NOT NULL,
   `last_mod` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `posts`
@@ -267,37 +267,39 @@ INSERT INTO `posts` (`id`, `title`, `name`, `description`, `summary`, `position`
 -- Indices de la tabla `admin`
 --
 ALTER TABLE `admin`
- ADD PRIMARY KEY (`id`), ADD UNIQUE KEY `usuario` (`user`), ADD UNIQUE KEY `email` (`email`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `usuario` (`user`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Indices de la tabla `content`
 --
 ALTER TABLE `content`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `defaultModulesConfig`
+-- Indices de la tabla `defaultmodulesconfig`
 --
-ALTER TABLE `defaultModulesConfig`
- ADD PRIMARY KEY (`id`);
+ALTER TABLE `defaultmodulesconfig`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `files`
 --
 ALTER TABLE `files`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
--- Indices de la tabla `modulesConfig`
+-- Indices de la tabla `modulesconfig`
 --
-ALTER TABLE `modulesConfig`
- ADD PRIMARY KEY (`id`);
+ALTER TABLE `modulesconfig`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `posts`
 --
 ALTER TABLE `posts`
- ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -307,32 +309,32 @@ ALTER TABLE `posts`
 -- AUTO_INCREMENT de la tabla `admin`
 --
 ALTER TABLE `admin`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `content`
 --
 ALTER TABLE `content`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
--- AUTO_INCREMENT de la tabla `defaultModulesConfig`
+-- AUTO_INCREMENT de la tabla `defaultmodulesconfig`
 --
-ALTER TABLE `defaultModulesConfig`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `defaultmodulesconfig`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `files`
 --
 ALTER TABLE `files`
-MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
--- AUTO_INCREMENT de la tabla `modulesConfig`
+-- AUTO_INCREMENT de la tabla `modulesconfig`
 --
-ALTER TABLE `modulesConfig`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+ALTER TABLE `modulesconfig`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT de la tabla `posts`
 --
 ALTER TABLE `posts`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
