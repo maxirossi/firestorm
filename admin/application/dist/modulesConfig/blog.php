@@ -16,12 +16,12 @@ $fields = array(
 		'label' => 'Summary',
 		'type' => 'textarea'
 	),
-	'position' => array(
+	'description' => array(
 		'name' => 'description',
 		'description' => 'Description',
 		'type' => 'textarea'
 	),
-	'description' => array(
+	'position' => array(
 		'name' => 'position',
 		'position' => 'Position',
 		'type' => 'number'
