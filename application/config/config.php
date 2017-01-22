@@ -514,7 +514,7 @@ $config['proxy_ips'] = '';
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-$enviroment = 'local' // local or production
+$enviroment = 'local'; // local or production
 
 if ($enviroment == 'local'){
 	// local Config
