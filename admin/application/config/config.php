@@ -515,7 +515,9 @@ $config['proxy_ips'] = '';
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-if (substr($ip,0,3)=='192' || substr($ip,0,3)=='127' || substr($ip,0,3)=='::1'){
+$enviroment = 'local'; // local or production
+
+if ($enviroment == 'local'){
 	/* dev config */
 	$config['appDomain'] = "http://localhost/blog/admin/";
 	$config['appDomainFront'] = "http://localhost/blog/";

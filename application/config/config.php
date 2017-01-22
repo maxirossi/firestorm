@@ -514,13 +514,13 @@ $config['proxy_ips'] = '';
 
 $ip = $_SERVER['REMOTE_ADDR'];
 
-if (substr($ip,0,3)=='192' || substr($ip,0,3)=='127' || substr($ip,0,3)=='::1'){
+$enviroment = 'local' // local or production
+
+if ($enviroment == 'local'){
 	// local Config
-	$config['appPathUpload'] = '/var/www/html/blog/public/uploads/admin/';
 	$config['appDomain'] = "http://localhost/blog";
 }else{
 	// prod Config
-	$config['appPathUpload'] = '/your_directory/';
 	$config['appDomain'] = "http://yourdomain.com";
 }
 
